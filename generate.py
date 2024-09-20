@@ -110,6 +110,7 @@ class CrosswordCreator():
             # iterate over every word in crossword puzzle
             for word in self.crossword.words:
                 # if constraint not met (i.e., length of variable and length of word aren't equal, remove the word from its domain)
+                # it doesn't fit in the spot we've alloted for a word
                 if len(word) != variable.length:
                     removeSet.add(word)
             for item in removeSet:
@@ -127,7 +128,7 @@ class CrosswordCreator():
         False if no revision was made.
         """
 
-        
+
 
 
         return True
