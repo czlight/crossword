@@ -141,10 +141,10 @@ class CrosswordCreator():
                 # if no overlap, add this item to set of values to remove from X's domain
                 if crossword.overlaps(xvalue, yvalue) == None:
                     noOverlapCount += 1
-            if noOverlapCount == len(self.domains[y])
+            if noOverlapCount == len(self.domains[y]):
                     arcRemovalSet.add(xvalue)
 
-        if len(arcRemovalSet) != None:
+        if arcRemovalSet:
             variableRevised = True
             for item in arcRemovalSet:
                 self.domains[x].remove(item)
