@@ -143,9 +143,11 @@ class CrosswordCreator():
             print("xvalue is", xvalue)
             noOverlapCount = 0
             for yvalue in self.domains[y]:
-                print("yvalue is ", yvalue)
+                print("self.crossword.overlaps", self.crossword.overlaps)
+                print("self.crossword.overlaps[(x,y)]:", self.crossword.overlaps[(xvalue, yvalue)])
+                #print("yvalue is ", yvalue)
                 # if no overlap, add this item to set of values to remove from X's domain
-                if (xvalue, yvalue) in self.crossword.overlaps and self.crossword.overlaps[(xvalue, yvalue)] == None:
+                if (xvalue, yvalue) in self.crossword.overlaps and not self.crossword.overlaps[(xvalue, yvalue)]:
                     print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
                     noOverlapCount += 1
             if noOverlapCount == len(self.domains[y]):
