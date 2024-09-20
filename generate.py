@@ -145,9 +145,9 @@ class CrosswordCreator():
                     arcRemovalSet.add(xvalue)
 
         if len(arcRemovalSet) != None:
+            variableRevised = True
             for item in arcRemovalSet:
                 self.domains[x].remove(item)
-                variableRevised = True
 
         return variableRevised
 
