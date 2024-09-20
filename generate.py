@@ -112,14 +112,6 @@ class CrosswordCreator():
             for item in removeSet:
                 self.domains[variable].remove(item)
             removeSet.clear()
-                    # self.domains[variable].remove(word)
-
-        #b for word in self.crossword.words:
-            # for variable in self.crossword.variables:
-                # if len(word) != len(variable):
-                   #  self.domains[variable].remove(word)
-
-
 
     def revise(self, x, y):
         """
