@@ -1,8 +1,8 @@
 from crossword import *
 from generate import *
 
-variable1 = Variable(0,0, Variable.DOWN, 5)
-variable2 = Variable(0,0, Variable.DOWN, 5)
+variable1 = Variable(4,4, Variable.ACROSS, 5)
+variable2 = Variable(2,1, Variable.DOWN, 5)
 
 print(hash(variable1))
 print(str(variable1))
@@ -26,12 +26,12 @@ def main():
     creator.revise(variable1, variable2)
 
     # Print result
-    if assignment is None:
-        print("No solution.")
-    else:
-        creator.print(assignment)
-        if output:
-            creator.save(assignment, output)
+    #if assignment is None:
+     #   print("No solution.")
+    #else:
+    #    creator.print(assignment)
+     #   if output:
+      #      creator.save(assignment, output)
 
 
 if __name__ == "__main__":
