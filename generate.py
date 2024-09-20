@@ -103,15 +103,15 @@ class CrosswordCreator():
         # loop over every word in crossword.words
         # loop over every variable's domain (i.e., self.domains[variable])
 
-        remove = set()
+        removeSet = set()
 
         for variable in self.crossword.variables:
             for word in self.crossword.words:
                 if len(word) != variable.length:
-                    remove.add(word)
-            for item in remove:
+                    removeSet.add(word)
+            for item in removeSet:
                 self.domains[variable].remove(item)
-            remove.clear()
+            removeSet.clear()
                     # self.domains[variable].remove(word)
 
         #b for word in self.crossword.words:
