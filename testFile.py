@@ -22,7 +22,8 @@ def main():
     # Generate crossword
     crossword = Crossword(structure, words)
     creator = CrosswordCreator(crossword)
-    assignment = creator.solve()
+    #assignment = creator.solve()
+    creator.revise(variable1, variable2)
 
     # Print result
     if assignment is None:
