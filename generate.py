@@ -128,7 +128,9 @@ class CrosswordCreator():
         False if no revision was made.
         """
 
-        # for domains in domains[x]; remove any domains that 
+        # for domains in domains[x]; remove any domains that
+        # makes domains[y] == None (i.e., removes all domains of y)
+        # iterate over
 
 
 
