@@ -111,6 +111,7 @@ class CrosswordCreator():
                     remove.add(word)
             for item in remove:
                 self.domains[variable].remove(item)
+            remove.clear()
                     # self.domains[variable].remove(word)
 
         #b for word in self.crossword.words:
