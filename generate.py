@@ -132,12 +132,25 @@ class CrosswordCreator():
         # makes domains[y] == None (i.e., removes all domains of y)
         # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
         #   remove domain from x
+        arcRemovalSet = set()
 
+        variableRevised = False
+        for xvalue in self.domains[x]:
+            noOverlapCount = 0
+            for yvalue in self.domains[y]:
+                # if no overlap, add this item to set of values to remove from X's domain
+                if crossword.overlaps(xvalue, yvalue) == None:
+                    noOverlapCount += 1
+            if noOverlapCount == len(self.domains[y])
+                    arcRemovalSet.add(xvalue)
 
+        if len(arcRemovalSet) != None:
+            for item in arcRemovalSet:
+                self.domains[x].remove(item)
+                variableRevised = True
 
+        return variableRevised
 
-
-        return True
 
     def ac3(self, arcs=None):
         """
