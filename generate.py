@@ -107,7 +107,7 @@ class CrosswordCreator():
 
         for variable in self.crossword.variables:
             for word in self.crossword.words:
-                if len(word) != len(self.domains[variable]):
+                if len(word) != variable.length:
                     remove.add(word)
             for item in remove:
                 self.domains[variable].remove(item)
