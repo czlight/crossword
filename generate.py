@@ -130,7 +130,8 @@ class CrosswordCreator():
 
         # for domains in domains[x]; remove any domains that
         # makes domains[y] == None (i.e., removes all domains of y)
-        # iterate over domains in x
+        # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
+        #   remove domain from x
 
 
 
