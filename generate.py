@@ -105,12 +105,16 @@ class CrosswordCreator():
 
         removeSet = set()
 
+        # Iterate over every variable
         for variable in self.crossword.variables:
+            # iterate over every word in crossword puzzle
             for word in self.crossword.words:
+                # if constraint not met (i.e., length of variable and length of word aren't equal, remove the word from its domain)
                 if len(word) != variable.length:
                     removeSet.add(word)
             for item in removeSet:
                 self.domains[variable].remove(item)
+            # Clear the set before checking next variable
             removeSet.clear()
 
     def revise(self, x, y):
