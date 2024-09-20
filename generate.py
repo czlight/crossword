@@ -144,6 +144,7 @@ class CrosswordCreator():
             for yvalue in self.domains[y]:
                 # if no overlap, add this item to set of values to remove from X's domain
                 if (xvalue, yvalue) in self.crossword.overlaps and self.crossword.overlaps[(xvalue, yvalue)] == None:
+                    print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
                     noOverlapCount += 1
             if noOverlapCount == len(self.domains[y]):
                     arcRemovalSet.add(xvalue)
