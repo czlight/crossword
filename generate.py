@@ -131,7 +131,7 @@ class CrosswordCreator():
         # for domains in domains[x]; remove any domains that
         # makes domains[y] == None (i.e., removes all domains of y)
         # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
-        #   remove domain from x
+        # remove domain from x
         print("calling revise function...........")
         print("variable x is: ", x)
         print("variable y is: ", y)
