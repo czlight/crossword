@@ -25,6 +25,8 @@ def main():
     #assignment = creator.solve()
     creator.revise(variable1, variable2)
 
+    print("crossword.structure[i][j] is True if blank)
+
     # Print result
     #if assignment is None:
      #   print("No solution.")
