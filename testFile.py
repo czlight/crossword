@@ -20,10 +20,14 @@ def main():
     output = sys.argv[3] if len(sys.argv) == 4 else None
 
     # Generate crossword
-    crossword = Crossword(structure, words)
-    creator = CrosswordCreator(crossword)
+    myCrossword = Crossword(structure, words)
+    myCreator = CrosswordCreator(myCrossword)
     #assignment = creator.solve()
-    creator.revise(variable1, variable2)
+    myCreator.revise(variable1, variable2)
+
+    for y in range(myCrossword.height):
+        for x in range(crossword.height):
+            print(crossword)
 
     # print("crossword.structure[i][j] is True if blank")
 
