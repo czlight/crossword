@@ -31,16 +31,16 @@ def main():
     myCreator.revise(variable1, variable2)
 
     print("print data about crossword.....")
-    print("height is: ")
-    print("width is: ")
-    print("crossword.structure is ")
-    print("Crossword.words is")
-    print("crossword.variables is")
-    print("variable1 is")
-    print("variable2 is")
-    print("crossword.overlaps[variable1][variable2] is: ")
+    print("height is: ", myCrossword.height)
+    print("width is: ", myCrossword.width)
+    print("crossword.structure is ", myCrossword.structure)
+    print("Crossword.words is", myCrossword.words)
+    print("crossword.variables is". myCrossword.variables)
+    print("variable1 is", variable1)
+    print("variable2 is", variable2)
+    print("crossword.overlaps[variable1][variable2] is: ", myCrossword.overlaps[variable2][variable2])
 
-    print("crossword.neighbors(variable1) returns neighbors)
+    print("crossword.neighbors(variable1) returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
 
 
     #for y in range(myCrossword.height):
