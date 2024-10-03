@@ -35,10 +35,10 @@ def main():
     print("width is: ", myCrossword.width)
     print("crossword.structure is ", myCrossword.structure)
     print("Crossword.words is", myCrossword.words)
-    print("crossword.variables is". myCrossword.variables)
+    print("crossword.variables is", myCrossword.variables)
     print("variable1 is", variable1)
     print("variable2 is", variable2)
-    print("crossword.overlaps[variable1][variable2] is: ", myCrossword.overlaps[variable2][variable2])
+    print("crossword.overlaps[variable1][variable2] is: ", myCrossword.overlaps[variable1][variable2])
 
     print("crossword.neighbors(variable1) returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
 
