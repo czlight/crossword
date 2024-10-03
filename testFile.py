@@ -27,7 +27,7 @@ def main():
     # Generate crossword
     myCrossword = Crossword(structure, words)
     myCreator = CrosswordCreator(myCrossword)
-    #assignment = creator.solve()
+    # assignment = creator.solve()
     myCreator.revise(variable1, variable2)
 
     for y in range(myCrossword.height):
