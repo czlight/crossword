@@ -30,9 +30,22 @@ def main():
     # assignment = creator.solve()
     myCreator.revise(variable1, variable2)
 
-    for y in range(myCrossword.height):
-        for x in range(myCrossword.height):
-            print(myCrossword)
+    print("print data about crossword.....")
+    print("height is: ")
+    print("width is: ")
+    print("crossword.structure is ")
+    print("Crossword.words is")
+    print("crossword.variables is")
+    print("variable1 is")
+    print("variable2 is")
+    print("crossword.overlaps[variable1][variable2] is: ")
+
+    print("crossword.neighbors(variable1) returns neighbors)
+
+
+    #for y in range(myCrossword.height):
+     #   for x in range(myCrossword.height):
+       #     print(myCrossword)
 
     # print("crossword.structure[i][j] is True if blank")
 
