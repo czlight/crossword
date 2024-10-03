@@ -31,8 +31,8 @@ def main():
     myCreator.revise(variable1, variable2)
 
     for y in range(myCrossword.height):
-        for x in range(crossword.height):
-            print(crossword)
+        for x in range(myCrossword.height):
+            print(myCrossword)
 
     # print("crossword.structure[i][j] is True if blank")
 
