@@ -1,8 +1,13 @@
 from crossword import *
 from generate import *
 
-variable1 = Variable(4,4, Variable.ACROSS, 5)
-variable2 = Variable(2,1, Variable.DOWN, 5)
+variable1 = Variable(1, 4, Variable.DOWN, 4)
+variable2 = Variable(0, 1, Variable.DOWN, 5)
+
+
+#use for structure1 and word1
+# variable1 = Variable(4,4, Variable.ACROSS, 5)
+#variable2 = Variable(2,1, Variable.DOWN, 5)
 
 print(hash(variable1))
 print(str(variable1))
