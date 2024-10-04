@@ -152,6 +152,8 @@ class CrosswordCreator():
         # check for overlap between variables
 
         overlapIndices = self.crossword.overlaps[x,y]
+        yDomainLength = len(self.domains[y])
+        print("y has"  ,yDomainLength, "items in its domain")
 
         if overlapIndices == None:
             print("no overlap")
@@ -160,6 +162,7 @@ class CrosswordCreator():
             print("there's overlap!")
             print("overlapIndices is:", overlapIndices)
             for xvalue in self.domains[x]:
+
                 for yvalue in self.domains[y]:
                     print("checking indices of xvalue, yvalue", xvalue, yvalue)
                     if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
