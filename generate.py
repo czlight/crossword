@@ -166,7 +166,7 @@ class CrosswordCreator():
                         # this value in x's domain has a possible value in y's domain
                         print("x has a value in its domain that has a possible value in y's domain")
                         print("these values are: " ,xvalue, yvalue)
-                        return True
+                    
 
 
 
