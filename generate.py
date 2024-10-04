@@ -163,6 +163,7 @@ class CrosswordCreator():
                     
 
 
+
         variableRevised = False
         for xvalue in self.domains[x]:
             print("xvalue is", xvalue)
