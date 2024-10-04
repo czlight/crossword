@@ -141,6 +141,7 @@ class CrosswordCreator():
         # strategy: iterate over every variable in the puzzle
         # for each neighbor of that variable, call overlap
         # overlap gives you the cell/coordinate they share
+        # remove item in variablex
         print("calling revise function...........")
         print("variable x is: ", x)
         print("variable y is: ", y)
