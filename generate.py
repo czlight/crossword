@@ -146,17 +146,25 @@ class CrosswordCreator():
         print("variable x is: ", x)
         print("variable y is: ", y)
         print("self.domains is ", self.domains)
+
+        # create empty set that will hold item to remove, if any
         arcRemovalSet = set()
         # neighbors = self.crossword.neighbors(x)
 
+
+        # return value of function. will be set to True if x's domain is changed
         variableRevised = False
 
         # check for overlap between variables
-
         overlapIndices = self.crossword.overlaps[x,y]
+
+        # keep track of how many items are in y's domain
+        # to determine when, for each value in x's domain,
+        # we have iterated through every item in y's domain
         yDomainLength = len(self.domains[y])
         print("y has"  ,yDomainLength, "items in its domain")
 
+        # if variables don't overlap
         if overlapIndices == None:
             print("no overlap")
             return False
