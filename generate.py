@@ -158,6 +158,7 @@ class CrosswordCreator():
             return False
         else:
             print("there's overlap!")
+            print("overlapIndices is:", overlapIndices)
             for xvalue in self.domains[x]:
                 for yvalue in self.domains[y]:
                     if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
