@@ -146,6 +146,7 @@ class CrosswordCreator():
         print("variable y is: ", y)
         print("self.domains is ", self.domains)
         arcRemovalSet = set()
+        neighbors = self.crossword.neighbors(x)
 
         variableRevised = False
         for xvalue in self.domains[x]:
