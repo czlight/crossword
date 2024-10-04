@@ -164,28 +164,34 @@ class CrosswordCreator():
         yDomainLength = len(self.domains[y])
         print("y has"  ,yDomainLength, "items in its domain")
 
-        # if variables don't overlap
+        # if variables don't overlap no revision is needed
         if overlapIndices == None:
             print("no overlap")
-            return False
+            return variableRevised
         else:
             print("there's overlap!")
             print("overlapIndices is:", overlapIndices)
+
+            # iterate over every value in x's domain
             for xvalue in self.domains[x]:
+
+                # set count to 0 for each new value in x's domain
                 iterationCount = 0
+
                 for yvalue in self.domains[y]:
                     iterationCount += 1
                     print("iteration count:", iterationCount)
                     print("checking indices of xvalue, yvalue", xvalue, yvalue)
+
                     if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
                         # this value in x's domain has a value in y's
                         # break in order to check next xvalue in self.domains[x]
                         print("x has a value in its domain that has a possible value in y's domain")
                         print("these values are: " ,xvalue, yvalue)
                         break
+
+                    # this value in x's domain does not have a possible value in y's, remove it from x's domain
                     if iterationCount == yDomainLength:
-                        # no possible value in y's domain found
-                        # remove this from x's domain
                         arcRemovalSet.add(xvalue)
 
 
