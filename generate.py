@@ -149,6 +149,8 @@ class CrosswordCreator():
         arcRemovalSet = set()
         # neighbors = self.crossword.neighbors(x)
 
+        variableRevised = False
+
         # check for overlap between variables
 
         overlapIndices = self.crossword.overlaps[x,y]
@@ -182,12 +184,12 @@ class CrosswordCreator():
 
 
 
-        variableRevised = False
-        for xvalue in self.domains[x]:
-            print("xvalue is", xvalue)
-            noOverlapCount = 0
-            for yvalue in self.domains[y]:
-                print("loop xvalue, yvalue", xvalue, yvalue)
+
+        #for xvalue in self.domains[x]:
+          #  print("xvalue is", xvalue)
+          #  noOverlapCount = 0
+           # for yvalue in self.domains[y]:
+               # print("loop xvalue, yvalue", xvalue, yvalue)
                 #print("self.crossword.structure[xvalue][yvalue]:", self.crossword.structure[x[xvalue]][y[yvalue]])
                 #print("self.crossword.overlaps", self.crossword.overlaps)
                 #if (x[xvalue], y[yvalue]) in self.crossword.overlaps:
@@ -197,8 +199,8 @@ class CrosswordCreator():
                 #if (xvalue, yvalue) in self.crossword.overlaps and not self.crossword.overlaps[(xvalue, yvalue)]:
                  #   print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
                   #  noOverlapCount += 1
-            if noOverlapCount == len(self.domains[y]):
-                    arcRemovalSet.add(xvalue)
+           # if noOverlapCount == len(self.domains[y]):
+                   # arcRemovalSet.add(xvalue)
 
         if arcRemovalSet:
             variableRevised = True
