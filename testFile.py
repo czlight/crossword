@@ -43,7 +43,7 @@ def main():
     print("crossword.neighbors(variable1) returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
 
     # strategy: iterate over every variable in the puzzle
-    #
+    # for each neighbor of that variable, 
 
 
     #for y in range(myCrossword.height):
