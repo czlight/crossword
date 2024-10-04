@@ -137,18 +137,59 @@ class CrosswordCreator():
         # makes domains[y] == None (i.e., removes all domains of y)
         # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
         # remove domain from x
+
+        # strategy: iterate over every variable in the puzzle
+        # for each neighbor of that variable, call overlap
+        # overlap gives you the cell/coordinate they share
+        # remove item in variablex
         print("calling revise function...........")
         print("variable x is: ", x)
         print("variable y is: ", y)
         print("self.domains is ", self.domains)
         arcRemovalSet = set()
+        # neighbors = self.crossword.neighbors(x)
 
         variableRevised = False
-        for xvalue in self.domains[x]:
-            print("xvalue is", xvalue)
-            noOverlapCount = 0
-            for yvalue in self.domains[y]:
-                print("loop xvalue, yvalue", xvalue, yvalue)
+
+        # check for overlap between variables
+
+        overlapIndices = self.crossword.overlaps[x,y]
+        yDomainLength = len(self.domains[y])
+        print("y has"  ,yDomainLength, "items in its domain")
+
+        if overlapIndices == None:
+            print("no overlap")
+            return False
+        else:
+            print("there's overlap!")
+            print("overlapIndices is:", overlapIndices)
+            for xvalue in self.domains[x]:
+                iterationCount = 0
+                for yvalue in self.domains[y]:
+                    iterationCount += 1
+                    print("iteration count:", iterationCount)
+                    print("checking indices of xvalue, yvalue", xvalue, yvalue)
+                    if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
+                        # this value in x's domain has a value in y's
+                        # break in order to check next xvalue in self.domains[x]
+                        print("x has a value in its domain that has a possible value in y's domain")
+                        print("these values are: " ,xvalue, yvalue)
+                        break
+                    if iterationCount == yDomainLength:
+                        # no possible value in y's domain found
+                        # remove this from x's domain
+                        arcRemovalSet.add(xvalue)
+
+
+
+
+
+
+        #for xvalue in self.domains[x]:
+          #  print("xvalue is", xvalue)
+          #  noOverlapCount = 0
+           # for yvalue in self.domains[y]:
+               # print("loop xvalue, yvalue", xvalue, yvalue)
                 #print("self.crossword.structure[xvalue][yvalue]:", self.crossword.structure[x[xvalue]][y[yvalue]])
                 #print("self.crossword.overlaps", self.crossword.overlaps)
                 #if (x[xvalue], y[yvalue]) in self.crossword.overlaps:
@@ -158,8 +199,8 @@ class CrosswordCreator():
                 #if (xvalue, yvalue) in self.crossword.overlaps and not self.crossword.overlaps[(xvalue, yvalue)]:
                  #   print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
                   #  noOverlapCount += 1
-            if noOverlapCount == len(self.domains[y]):
-                    arcRemovalSet.add(xvalue)
+           # if noOverlapCount == len(self.domains[y]):
+                   # arcRemovalSet.add(xvalue)
 
         if arcRemovalSet:
             variableRevised = True
