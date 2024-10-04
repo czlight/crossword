@@ -160,7 +160,9 @@ class CrosswordCreator():
             print("there's overlap!")
             for xvalue in self.domains[x]:
                 for yvalue in self.domains[y]:
-                    
+                    if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
+                        # this value in x's domain has a possible value in y's domain
+                        #
 
 
 
