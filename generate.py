@@ -149,6 +149,17 @@ class CrosswordCreator():
         arcRemovalSet = set()
         # neighbors = self.crossword.neighbors(x)
 
+        # check for overlap between variables
+
+        overlapIndices = self.crossword.overlaps[x,y]
+
+        if overlapIndices == None:
+            print("no overlap")
+            return False
+        else:
+            print("there's overlap)
+            
+
         variableRevised = False
         for xvalue in self.domains[x]:
             print("xvalue is", xvalue)
