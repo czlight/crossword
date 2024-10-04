@@ -109,6 +109,7 @@ class CrosswordCreator():
         # Iterate over every variable
         for variable in self.crossword.variables:
             print("checking variable:::", variable)
+            print("this variable's domain is: ", self.domains[variable])
             # iterate over every word in crossword puzzle
             for word in self.crossword.words:
                 # if constraint not met (i.e., length of variable and length of word aren't equal, remove the word from its domain)
