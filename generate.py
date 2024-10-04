@@ -118,6 +118,7 @@ class CrosswordCreator():
             for item in removeSet:
                 print("removing to enforce node consistency: ", item)
                 self.domains[variable].remove(item)
+            print("domain of variable", variable, "is now:!!:!::", self.domains[variable])
             # Clear the set before checking next variable
             removeSet.clear()
 
