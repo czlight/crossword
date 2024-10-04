@@ -157,8 +157,11 @@ class CrosswordCreator():
             print("no overlap")
             return False
         else:
-            print("there's overlap)
-            
+            print("there's overlap!")
+            for xvalue in self.domains[x]:
+                for yvalue in self.domains[y]:
+                    
+
 
         variableRevised = False
         for xvalue in self.domains[x]:
