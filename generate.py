@@ -114,6 +114,7 @@ class CrosswordCreator():
                 if len(word) != variable.length:
                     removeSet.add(word)
             for item in removeSet:
+                print("removing to enforce node consistency: ", item)
                 self.domains[variable].remove(item)
             # Clear the set before checking next variable
             removeSet.clear()
