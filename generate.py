@@ -99,6 +99,7 @@ class CrosswordCreator():
         (Remove any values that are inconsistent with a variable's unary
          constraints; in this case, the length of the word.)
         """
+        print("******calling enforce node consistency!!*******")
         # node consistency is a unary constraint
         # loop over every word in crossword.words
         # loop over every variable's domain (i.e., self.domains[variable])

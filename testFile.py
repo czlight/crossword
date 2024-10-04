@@ -42,6 +42,8 @@ def main():
 
     print("crossword.neighbors(variable1) returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
 
+    myCreator.enforce_node_consistency()
+
     # strategy: iterate over every variable in the puzzle
     # for each neighbor of that variable, call overlap
     # overlap gives you the cell/coordinate they share
