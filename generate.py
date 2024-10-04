@@ -163,10 +163,12 @@ class CrosswordCreator():
                 for yvalue in self.domains[y]:
                     print("checking indices of xvalue, yvalue", xvalue, yvalue)
                     if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
-                        continue
-                        # this value in x's domain has a possible value in y's domain
+                        # this value in x's domain has a value in y's
+                        # break in order to check next xvalue in self.domains[x]
                         print("x has a value in its domain that has a possible value in y's domain")
                         print("these values are: " ,xvalue, yvalue)
+                        break
+
 
 
 
