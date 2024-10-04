@@ -137,6 +137,10 @@ class CrosswordCreator():
         # makes domains[y] == None (i.e., removes all domains of y)
         # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
         # remove domain from x
+
+        # strategy: iterate over every variable in the puzzle
+        # for each neighbor of that variable, call overlap
+        # overlap gives you the cell/coordinate they share
         print("calling revise function...........")
         print("variable x is: ", x)
         print("variable y is: ", y)

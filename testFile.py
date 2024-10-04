@@ -45,9 +45,7 @@ def main():
 
     # myCreator.enforce_node_consistency()
 
-    # strategy: iterate over every variable in the puzzle
-    # for each neighbor of that variable, call overlap
-    # overlap gives you the cell/coordinate they share
+
 
 
     #for y in range(myCrossword.height):
