@@ -2,7 +2,7 @@ from crossword import *
 from generate import *
 
 variable1 = Variable(1, 4, Variable.DOWN, 4)
-variable2 = Variable(0, 1, Variable.DOWN, 5)
+variable2 = Variable(4, 1, Variable.ACROSS, 4)
 
 
 #use for structure1 and word1
@@ -43,7 +43,7 @@ def main():
     print("crossword.neighbors(variable1) returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
 
     # strategy: iterate over every variable in the puzzle
-    # for each neighbor of that variable, 
+    # for each neighbor of that variable,
 
 
     #for y in range(myCrossword.height):
