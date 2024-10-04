@@ -28,6 +28,11 @@ def main():
     myCrossword = Crossword(structure, words)
     myCreator = CrosswordCreator(myCrossword)
     # assignment = creator.solve()
+
+    # enforce node consistency before calling revise
+    # otherwise will get values in domain out of index
+    myCreator.enforce_node_consistency()
+
     myCreator.revise(variable1, variable2)
 
     print("print data about crossword.....")
@@ -43,7 +48,6 @@ def main():
     print("crossword.neighbors(variable1) returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
 
 
-    # myCreator.enforce_node_consistency()
 
 
 
