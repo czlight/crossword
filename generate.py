@@ -146,38 +146,52 @@ class CrosswordCreator():
         print("variable x is: ", x)
         print("variable y is: ", y)
         print("self.domains is ", self.domains)
+
+        # create empty set that will hold item to remove, if any
         arcRemovalSet = set()
         # neighbors = self.crossword.neighbors(x)
 
+
+        # return value of function. will be set to True if x's domain is changed
         variableRevised = False
 
         # check for overlap between variables
-
         overlapIndices = self.crossword.overlaps[x,y]
+
+        # keep track of how many items are in y's domain
+        # to determine when, for each value in x's domain,
+        # we have iterated through every item in y's domain
         yDomainLength = len(self.domains[y])
         print("y has"  ,yDomainLength, "items in its domain")
 
+        # if variables don't overlap no revision is needed
         if overlapIndices == None:
             print("no overlap")
-            return False
+            return variableRevised
         else:
             print("there's overlap!")
             print("overlapIndices is:", overlapIndices)
+
+            # iterate over every value in x's domain
             for xvalue in self.domains[x]:
+
+                # set count to 0 for each new value in x's domain
                 iterationCount = 0
+
                 for yvalue in self.domains[y]:
                     iterationCount += 1
                     print("iteration count:", iterationCount)
                     print("checking indices of xvalue, yvalue", xvalue, yvalue)
+
                     if xvalue[overlapIndices[0]] == yvalue[overlapIndices[1]]:
                         # this value in x's domain has a value in y's
                         # break in order to check next xvalue in self.domains[x]
                         print("x has a value in its domain that has a possible value in y's domain")
                         print("these values are: " ,xvalue, yvalue)
                         break
+
+                    # this value in x's domain does not have a possible value in y's, remove it from x's domain
                     if iterationCount == yDomainLength:
-                        # no possible value in y's domain found
-                        # remove this from x's domain
                         arcRemovalSet.add(xvalue)
 
 
