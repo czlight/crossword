@@ -99,6 +99,7 @@ class CrosswordCreator():
         (Remove any values that are inconsistent with a variable's unary
          constraints; in this case, the length of the word.)
         """
+        print("******calling enforce node consistency!!*******")
         # node consistency is a unary constraint
         # loop over every word in crossword.words
         # loop over every variable's domain (i.e., self.domains[variable])
@@ -107,6 +108,8 @@ class CrosswordCreator():
 
         # Iterate over every variable
         for variable in self.crossword.variables:
+            print("checking variable:::", variable)
+            print("this variable's domain is: ", self.domains[variable])
             # iterate over every word in crossword puzzle
             for word in self.crossword.words:
                 # if constraint not met (i.e., length of variable and length of word aren't equal, remove the word from its domain)
@@ -114,7 +117,9 @@ class CrosswordCreator():
                 if len(word) != variable.length:
                     removeSet.add(word)
             for item in removeSet:
+                print("removing to enforce node consistency: ", item)
                 self.domains[variable].remove(item)
+            print("domain of variable", variable, "is now:!!:!::", self.domains[variable])
             # Clear the set before checking next variable
             removeSet.clear()
 
@@ -131,16 +136,28 @@ class CrosswordCreator():
         # for domains in domains[x]; remove any domains that
         # makes domains[y] == None (i.e., removes all domains of y)
         # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
-        #   remove domain from x
+        # remove domain from x
+        print("calling revise function...........")
+        print("variable x is: ", x)
+        print("variable y is: ", y)
+        print("self.domains is ", self.domains)
         arcRemovalSet = set()
 
         variableRevised = False
         for xvalue in self.domains[x]:
+            print("xvalue is", xvalue)
             noOverlapCount = 0
             for yvalue in self.domains[y]:
+                print("loop xvalue, yvalue", xvalue, yvalue)
+                #print("self.crossword.structure[xvalue][yvalue]:", self.crossword.structure[x[xvalue]][y[yvalue]])
+                #print("self.crossword.overlaps", self.crossword.overlaps)
+                #if (x[xvalue], y[yvalue]) in self.crossword.overlaps:
+                  #  print("self.crossword.overlaps[(x,y)]:", self.crossword.overlaps[(x[xvalue], y[yvalue])])
+                #print("yvalue is ", yvalue)
                 # if no overlap, add this item to set of values to remove from X's domain
-                if (xvalue, yvalue) in self.crossword.overlaps and self.crossword.overlaps[(xvalue, yvalue)] == None:
-                    noOverlapCount += 1
+                #if (xvalue, yvalue) in self.crossword.overlaps and not self.crossword.overlaps[(xvalue, yvalue)]:
+                 #   print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
+                  #  noOverlapCount += 1
             if noOverlapCount == len(self.domains[y]):
                     arcRemovalSet.add(xvalue)
 
