@@ -227,8 +227,9 @@ class CrosswordCreator():
             print("self.cross.overlaps is :", self.crossword.overlaps)
             # iterate over each variable pair (i.e., key) and value and add to queue
             for item in self.crossword.overlaps:
-                if self.crossword.overlaps(item) != None:
-                    
+                if self.crossword.overlaps[item] != None:
+                    arcQueue.append(item)
+        print("arcQueue contains the following: ", arcQueue)
         # else:
             # arcQueue =
 
