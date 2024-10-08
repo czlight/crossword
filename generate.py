@@ -239,7 +239,7 @@ class CrosswordCreator():
             print("y variable", y)
             if self.revise(x,y):
                 # check for empty domain (i.e., problem not solvable)
-                if not self.domain[x]:
+                if not self.domains[x]:
                     return False
                 # enqueue each neighbor of x because it was revised
                 for neighbor in self.crossword.overlaps[x] - {y}:
