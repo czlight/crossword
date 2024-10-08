@@ -195,27 +195,8 @@ class CrosswordCreator():
                         arcRemovalSet.add(xvalue)
 
 
-
-
-
-
-        #for xvalue in self.domains[x]:
-          #  print("xvalue is", xvalue)
-          #  noOverlapCount = 0
-           # for yvalue in self.domains[y]:
-               # print("loop xvalue, yvalue", xvalue, yvalue)
-                #print("self.crossword.structure[xvalue][yvalue]:", self.crossword.structure[x[xvalue]][y[yvalue]])
-                #print("self.crossword.overlaps", self.crossword.overlaps)
-                #if (x[xvalue], y[yvalue]) in self.crossword.overlaps:
-                  #  print("self.crossword.overlaps[(x,y)]:", self.crossword.overlaps[(x[xvalue], y[yvalue])])
-                #print("yvalue is ", yvalue)
-                # if no overlap, add this item to set of values to remove from X's domain
-                #if (xvalue, yvalue) in self.crossword.overlaps and not self.crossword.overlaps[(xvalue, yvalue)]:
-                 #   print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
-                  #  noOverlapCount += 1
-           # if noOverlapCount == len(self.domains[y]):
-                   # arcRemovalSet.add(xvalue)
-
+        # iterate over every item added to set
+        # and remove it from variable's domain
         if arcRemovalSet:
             variableRevised = True
             for item in arcRemovalSet:
@@ -233,7 +214,15 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-        raise NotImplementedError
+
+        # create an empty list to represent queue
+        arcQueue = []
+
+        # use optional argument 'arcs' as initial list
+        if arcs != None:
+            arcQueue = arcs
+        # else:
+            # arcQueue = 
 
     def assignment_complete(self, assignment):
         """
