@@ -233,6 +233,7 @@ class CrosswordCreator():
 
         for arc in arcQueue:
             
+
         # else:
             # arcQueue =
 
