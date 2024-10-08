@@ -227,6 +227,7 @@ class CrosswordCreator():
             print("self.cross.overlaps is :", self.crossword.overlaps)
             # iterate over each variable pair (i.e., key) and value and add to queue
             for item in self.crossword.overlaps:
+                print("item in overlaps", item)
                 if self.crossword.overlaps[item] != None:
                     arcQueue.append(item)
         print("arcQueue contains the following: ", arcQueue)
@@ -242,8 +243,11 @@ class CrosswordCreator():
                 if not self.domains[x]:
                     return False
                 # enqueue each neighbor of x because it was revised
+                print("x is ", x)
+                print("-#-#-# overlaps]x]: ", self.crossword.overlaps[x])
+
                 for neighbor in self.crossword.overlaps[x] - {y}:
-                    arcQueue.append(neighbor, x)
+                    arcQueue.append((neighbor, x))
             return True
 
 
