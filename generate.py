@@ -251,8 +251,8 @@ class CrosswordCreator():
 
                 print("*****************about to run area where key error")
 
-                for neighbor in self.crossword.overlaps[x] - {y}:
-                    arcQueue.append((neighbor, x))
+                for neighbors in self.crossword.overlaps[x] - {y}:
+                    arcQueue.append((neighbors, x))
             return True
 
 
