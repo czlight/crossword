@@ -260,9 +260,11 @@ class CrosswordCreator():
                     print("neighbor is", neighbors)
                     print("x is currently", x)
                     print("arcQueue appended!",  arcQueue)
-            print("queue is empty finally")
-            print("loop variable j is ", j)
-            return True
+        print("queue is empty finally")
+        print("loop variable j is ", j)
+        print("arcQueue: ", arcQueue)
+        print("self.domains is currently: ", self.domains)
+        return True
 
 
         # else:
