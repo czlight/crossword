@@ -247,7 +247,7 @@ class CrosswordCreator():
                 print("-#-#-# overlaps]x]: ", self.crossword.overlaps[x])
 
                 for neighbor in self.crossword.overlaps[x] - {y}:
-                    arcQueue.append(neighbor, x)
+                    arcQueue.append((neighbor, x))
             return True
 
 
