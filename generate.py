@@ -249,8 +249,8 @@ class CrosswordCreator():
                 if not self.domains[x]:
                     return False
                 # enqueue each neighbor of x because it was revised
-                print("x is ", x)
-                print("-#-#-# overlaps keys() ", self.crossword.overlaps.keys())
+                print(" *! x is !*", x)
+                print("-#-#-# overlaps[x] ", self.crossword.overlaps[x])
 
                 print("*****************about to run area where key error")
 
