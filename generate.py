@@ -242,8 +242,9 @@ class CrosswordCreator():
                 if not self.domains[x]:
                     return False
                 # enqueue each neighbor of x because it was revised
-                print("-#-#-# overlaps]x]: ", self.crossword.overlaps[x])
                 print("x is ", x)
+                print("-#-#-# overlaps]x]: ", self.crossword.overlaps[x])
+
                 for neighbor in self.crossword.overlaps[x] - {y}:
                     arcQueue.append(neighbor, x)
             return True
