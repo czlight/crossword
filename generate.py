@@ -250,7 +250,7 @@ class CrosswordCreator():
                     return False
                 # enqueue each neighbor of x because it was revised
                 print(" *! x is !*", x)
-                print("-#-#-# overlaps[x] ", self.crossword.overlaps[x])
+                print("-#-#-# overlaps ", self.crossword.overlaps)
 
                 print("*****************about to run area where key error")
 
