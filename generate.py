@@ -248,7 +248,7 @@ class CrosswordCreator():
                     return False
                 # enqueue each neighbor of x because it was revised
                 print("x is ", x)
-                #print("-#-#-# overlaps]x]: ", self.crossword.overlaps[x])
+                print("-#-#-# overlaps keys() ", self.crossword.overlaps.keys())
 
                 for neighbor in self.crossword.overlaps[x] - {y}:
                     arcQueue.append((neighbor, x))
