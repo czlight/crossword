@@ -241,6 +241,7 @@ class CrosswordCreator():
                 # check for empty domain (i.e., problem not solvable)
                 if not self.domain[x]:
                     return False
+                
                 for neighbor in self.crossword.overlaps
 
             return
