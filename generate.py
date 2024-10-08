@@ -230,6 +230,8 @@ class CrosswordCreator():
                 if self.crossword.overlaps[item] != None:
                     arcQueue.append(item)
         print("arcQueue contains the following: ", arcQueue)
+
+        
         # else:
             # arcQueue =
 
