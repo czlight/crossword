@@ -235,7 +235,9 @@ class CrosswordCreator():
         print("arcQueue contains the following: ", arcQueue)
 
         # loop until list is empty
+        j = 0
         while arcQueue:
+            j+=1
             print("queue isn't empty")
             ((x,y)) = arcQueue.pop(0)
 
@@ -245,6 +247,7 @@ class CrosswordCreator():
             if self.revise(x,y):
                 # check for empty domain (i.e., problem not solvable)
                 if not self.domains[x]:
+                    print("problem not solvable!")
                     return False
                 # enqueue each neighbor of x because it was revised
                 print(" *! x is !*", x)
@@ -257,6 +260,8 @@ class CrosswordCreator():
                     print("neighbor is", neighbors)
                     print("x is currently", x)
                     print("arcQueue appended!",  arcQueue)
+            print("queue is empty finally")
+            print("loop variable j is ", j)
             return True
 
 
