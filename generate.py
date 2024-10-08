@@ -215,14 +215,18 @@ class CrosswordCreator():
         return False if one or more domains end up empty.
         """
 
+        print("calling ac3*!*!***************")
+
         # create an empty list to represent queue
         arcQueue = []
 
         # use optional argument 'arcs' as initial list
         if arcs != None:
             arcQueue = arcs
+        else:
+            print("self.cross.overlaps is :", self.crossword.overlaps)
         # else:
-            # arcQueue = 
+            # arcQueue =
 
     def assignment_complete(self, assignment):
         """
