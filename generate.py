@@ -214,39 +214,7 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-
-        print("calling ac3*!*!***************")
-
-        # create an empty list to represent queue
-        arcQueue = []
-
-        # use optional argument 'arcs' as initial list
-        if arcs != None:
-            arcQueue = arcs
-        else:
-            # iterate over each variable pair (i.e., key) and value and add to queue
-            for item, overlap in self.crossword.overlaps.items():
-                if overlap is not None:
-                    print("item in overlaps", item)
-                    arcQueue.append(item)
-        print("arcQueue contains the following: ", arcQueue)
-
-        # loop until list is empty
-        while arcQueue:
-            print("queue isn't empty")
-            ((x,y)) = arcQueue.pop(0)
-
-            if self.revise(x,y):
-                # check for empty domain (i.e., problem not solvable)
-                if not self.domains[x]:
-                    print("problem not solvable!")
-                    return False
-                # enqueue each neighbor of x because it was revised
-                for neighbors in self.crossword.neighbors(x) - {y}:
-                    arcQueue.append((neighbors, x))
-                    
-        return True
-
+        raise NotImplementedError
 
     def assignment_complete(self, assignment):
         """
