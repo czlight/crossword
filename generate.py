@@ -237,10 +237,13 @@ class CrosswordCreator():
         # loop until list is empty
         while arcQueue:
             print("queue isn't empty")
-            ((x, y)) = arcQueue.pop(0)
+            poppedArc = arcQueue.pop(0)
+            print("poppppppedArc:", poppedArc)
+            x = poppedArc[0]
+            y = poppedArc[1]
 
-            print("x variable", x)
-            print("y variable", y)
+            #print("x variable", x)
+            #print("y variable", y)
             if self.revise(x,y):
                 # check for empty domain (i.e., problem not solvable)
                 if not self.domains[x]:
