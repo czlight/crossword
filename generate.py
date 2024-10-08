@@ -229,9 +229,9 @@ class CrosswordCreator():
             for item in self.crossword.overlaps.keys():
                 if self.crossword.overlaps[item] is not None:
                     print("item in overlaps", item)
-                    for neighbor in self.crossword.overlaps[item]:
-                        if neighbor is not None:
-                            arcQueue.append((item))
+                    #for neighbor in self.crossword.overlaps[item]:
+                      #  if neighbor is not None:
+                    arcQueue.append((item))
         print("arcQueue contains the following: ", arcQueue)
 
         # loop until list is empty
