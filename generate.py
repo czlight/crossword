@@ -235,6 +235,10 @@ class CrosswordCreator():
         while arcQueue:
             print("queue isn't empty")
             (x,y) = arcQueue.pop(0)
+            print("x variable", x)
+            print("y variable", y)
+            if revise(x,y):
+                
             return
 
 
