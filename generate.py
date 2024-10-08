@@ -231,8 +231,10 @@ class CrosswordCreator():
                     arcQueue.append(item)
         print("arcQueue contains the following: ", arcQueue)
 
-        while arcQueue != None:
-            
+        # loop until list is empty
+        while arcQueue:
+            (x,y) = arcQueue.pop(0)
+
 
 
         # else:
