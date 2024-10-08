@@ -31,7 +31,7 @@ def main():
 
     # enforce node consistency before calling revise
     # otherwise will get values in domain out of index
-    # myCreator.enforce_node_consistency()
+    myCreator.enforce_node_consistency()
 
     # Creator.revise(variable1, variable2)
 
