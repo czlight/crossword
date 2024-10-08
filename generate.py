@@ -237,7 +237,7 @@ class CrosswordCreator():
         # loop until list is empty
         while arcQueue:
             print("queue isn't empty")
-            (x, y) = arcQueue.pop(0)
+            ((x, y)) = arcQueue.pop(0)
 
             print("x variable", x)
             print("y variable", y)
@@ -248,6 +248,8 @@ class CrosswordCreator():
                 # enqueue each neighbor of x because it was revised
                 print("x is ", x)
                 print("-#-#-# overlaps keys() ", self.crossword.overlaps.keys())
+
+                print("*****************about to run area where key error")
 
                 for neighbor in self.crossword.overlaps[x] - {y}:
                     arcQueue.append((neighbor, x))
