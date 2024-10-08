@@ -244,7 +244,7 @@ class CrosswordCreator():
                 # enqueue each neighbor of x because it was revised
                 for neighbors in self.crossword.neighbors(x) - {y}:
                     arcQueue.append((neighbors, x))
-                    
+
         return True
 
 
