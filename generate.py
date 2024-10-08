@@ -235,7 +235,11 @@ class CrosswordCreator():
         # loop until list is empty
         while arcQueue:
             print("queue isn't empty")
-            ((x,y)) = arcQueue.pop(0)
+            poppedArc = arcQueue.pop(0)
+            print("######poppedArc", poppedArc)
+            x = poppedArc[0]
+            y = poppedArc[1]
+            #((x,y)) = arcQueue.pop(0)
             print("x variable", x)
             print("y variable", y)
             if self.revise(x,y):
