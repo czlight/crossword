@@ -238,7 +238,11 @@ class CrosswordCreator():
             print("x variable", x)
             print("y variable", y)
             if revise(x,y):
-                
+                # check for empty domain (i.e., problem not solvable)
+                if not self.domain[x]:
+                    return False
+                for neighbor in 
+
             return
 
 
