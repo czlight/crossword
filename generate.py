@@ -237,12 +237,13 @@ class CrosswordCreator():
             (x,y) = arcQueue.pop(0)
             print("x variable", x)
             print("y variable", y)
-            if revise(x,y):
+            if self.revise(x,y):
                 # check for empty domain (i.e., problem not solvable)
                 if not self.domain[x]:
                     return False
                 
-                for neighbor in self.crossword.overlaps
+
+                #for neighbor in self.crossword.overlaps
 
             return
 
