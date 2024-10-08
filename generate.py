@@ -195,27 +195,8 @@ class CrosswordCreator():
                         arcRemovalSet.add(xvalue)
 
 
-
-
-
-
-        #for xvalue in self.domains[x]:
-          #  print("xvalue is", xvalue)
-          #  noOverlapCount = 0
-           # for yvalue in self.domains[y]:
-               # print("loop xvalue, yvalue", xvalue, yvalue)
-                #print("self.crossword.structure[xvalue][yvalue]:", self.crossword.structure[x[xvalue]][y[yvalue]])
-                #print("self.crossword.overlaps", self.crossword.overlaps)
-                #if (x[xvalue], y[yvalue]) in self.crossword.overlaps:
-                  #  print("self.crossword.overlaps[(x,y)]:", self.crossword.overlaps[(x[xvalue], y[yvalue])])
-                #print("yvalue is ", yvalue)
-                # if no overlap, add this item to set of values to remove from X's domain
-                #if (xvalue, yvalue) in self.crossword.overlaps and not self.crossword.overlaps[(xvalue, yvalue)]:
-                 #   print("xvalue", xvalue, ", and yvalue: ", yvalue, "don't overlap")
-                  #  noOverlapCount += 1
-           # if noOverlapCount == len(self.domains[y]):
-                   # arcRemovalSet.add(xvalue)
-
+        # iterate over every item added to set
+        # and remove it from variable's domain
         if arcRemovalSet:
             variableRevised = True
             for item in arcRemovalSet:
@@ -233,7 +214,41 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-        raise NotImplementedError
+
+        print("calling ac3*!*!***************")
+
+        # create an empty list to represent queue
+        arcQueue = []
+
+        # use optional argument 'arcs' as initial list
+        if arcs != None:
+            arcQueue = arcs
+        else:
+            print("self.cross.overlaps is :", self.crossword.overlaps)
+            # iterate over each variable pair (i.e., key) and value and add to queue
+            for item in self.crossword.overlaps:
+                if self.crossword.overlaps[item] != None:
+                    arcQueue.append(item)
+        print("arcQueue contains the following: ", arcQueue)
+
+        # loop until list is empty
+        while arcQueue:
+            print("queue isn't empty")
+            (x,y) = arcQueue.pop(0)
+            print("x variable", x)
+            print("y variable", y)
+            if self.revise(x,y):
+                # check for empty domain (i.e., problem not solvable)
+                if not self.domains[x]:
+                    return False
+                # enqueue each neighbor of x because it was revised
+                for neighbor in self.crossword.overlaps[x] - {y}:
+                    arcQueue.append(neighbor, x)
+            return True
+
+
+        # else:
+            # arcQueue =
 
     def assignment_complete(self, assignment):
         """
