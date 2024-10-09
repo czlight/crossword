@@ -132,25 +132,9 @@ class CrosswordCreator():
         Return True if a revision was made to the domain of `x`; return
         False if no revision was made.
         """
-
-        # for domains in domains[x]; remove any domains that
-        # makes domains[y] == None (i.e., removes all domains of y)
-        # iterate over domains in x if len(domains[y]) == 1 and domains[x] = domains[y]:
-        # remove domain from x
-
-        # strategy: iterate over every variable in the puzzle
-        # for each neighbor of that variable, call overlap
-        # overlap gives you the cell/coordinate they share
-        # remove item in variablex
-        print("calling revise function...........")
-        print("variable x is: ", x)
-        print("variable y is: ", y)
-        print("self.domains is ", self.domains)
-
         # create empty set that will hold item to remove, if any
         arcRemovalSet = set()
         # neighbors = self.crossword.neighbors(x)
-
 
         # return value of function. will be set to True if x's domain is changed
         variableRevised = False
@@ -162,7 +146,6 @@ class CrosswordCreator():
         # to determine when, for each value in x's domain,
         # we have iterated through every item in y's domain
         yDomainLength = len(self.domains[y])
-        print("y has"  ,yDomainLength, "items in its domain")
 
         # if variables don't overlap no revision is needed
         if overlapIndices == None:
@@ -194,13 +177,11 @@ class CrosswordCreator():
                     if iterationCount == yDomainLength:
                         arcRemovalSet.add(xvalue)
 
-
-        # iterate over every item added to set
-        # and remove it from variable's domain
         # iterate over every item added to set
         # and remove it from variable's domain
         if arcRemovalSet:
             variableRevised = True
+
             for item in arcRemovalSet:
                 self.domains[x].remove(item)
 
@@ -216,7 +197,6 @@ class CrosswordCreator():
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-
         print("calling ac3*!*!***************")
 
         # create an empty list to represent queue
@@ -248,62 +228,6 @@ class CrosswordCreator():
                     arcQueue.append((neighbors, x))
 
         return True
-
-
-        print("calling ac3*!*!***************")
-
-        # create an empty list to represent queue
-        arcQueue = []
-
-        # use optional argument 'arcs' as initial list
-        if arcs != None:
-            arcQueue = arcs
-        else:
-            print("self.cross.overlaps is :", self.crossword.overlaps)
-            # iterate over each variable pair (i.e., key) and value and add to queue
-            for item, overlap in self.crossword.overlaps.items():
-                if overlap is not None:
-                    print("item in overlaps", item)
-                    #for neighbor in self.crossword.overlaps[item]:
-                      #  if neighbor is not None:
-                    arcQueue.append(item)
-        print("arcQueue contains the following: ", arcQueue)
-
-        # loop until list is empty
-        j = 0
-        while arcQueue:
-            j+=1
-            print("queue isn't empty")
-            ((x,y)) = arcQueue.pop(0)
-
-
-            print("x variable", x)
-            print("y variable", y)
-            if self.revise(x,y):
-                # check for empty domain (i.e., problem not solvable)
-                if not self.domains[x]:
-                    print("problem not solvable!")
-                    return False
-                # enqueue each neighbor of x because it was revised
-                print(" *! x is !*", x)
-                print("-#-#-# overlaps ", self.crossword.overlaps)
-
-                print("*****************about to run area where key error")
-
-                for neighbors in self.crossword.neighbors(x) - {y}:
-                    arcQueue.append((neighbors, x))
-                    print("neighbor is", neighbors)
-                    print("x is currently", x)
-                    print("arcQueue appended!",  arcQueue)
-        print("queue is empty finally")
-        print("loop variable j is ", j)
-        print("arcQueue: ", arcQueue)
-        print("self.domains is currently: ", self.domains)
-        return True
-
-
-        # else:
-            # arcQueue =
 
     def assignment_complete(self, assignment):
         """
