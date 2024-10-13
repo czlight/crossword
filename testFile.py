@@ -46,8 +46,10 @@ def main():
     #print("crossword.overlaps[variable1][variable2] is: ", myCrossword.overlaps[variable1, variable2])
 
     print("-----***************!*!*!crossword.neighbors[variable1] returns neighbors (i.e. overlap)", myCrossword.neighbors(variable1))
-
+    myAssignment = {variable1 : 'word', variable2 : "victory", }
     myCreator.ac3()
+
+    myCreator.assignment_complete(myAssignment)
 
 
 
