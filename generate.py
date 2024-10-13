@@ -234,14 +234,73 @@ class CrosswordCreator():
         Return True if `assignment` is complete (i.e., assigns a value to each
         crossword variable); return False otherwise.
         """
-        raise NotImplementedError
+        print("-----_------calling assignment_complete function")
+        # to return True, below criteria must be satisfied:
+        # 1. every variable exists in assignment
+        # 2. every assignment is non-null
+
+        # reminder: self.crossword.variables is a set of all variables in the puzzle
+        # assignment is a dictionary mapping variable objects to word
+
+        allVariables = self.crossword.variables
+        print("all variables is: ", allVariables)
+
+        for item in allVariables:
+            if item not in assignment:
+                return False
+
+        # iterate over each variable/key in assignment, return False if value is
+
+        for variable in assignment:
+            # check whether each variable has a word assigned to it
+            if assignment[variable] == None:
+                return False
+
+        return True
+
 
     def consistent(self, assignment):
         """
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
+
+        # return True under the following conditions:
+        # 1. variable word length property and assigned word match
+        # 2. no conflicting overlaps (i.e., overlapping neighbors agree on letter in cell)
+        # 3. all values are distinct.
+        # Note: not all variables will necessarily be present in the assignment
         """
-        raise NotImplementedError
+
+        for variable in assignment:
+
+            neighborsRemovalSet = set()
+
+            neighbors = self.crossword.neighbors(variable)
+
+            # remove all neighbors that aren't in assignment
+            for item in neighbors:
+                if item not in assignment:
+                    neighborsRemovalSet.add(item)
+
+            if neighborsRemovalSet:
+                for item in neighborsRemovalSet:
+                    neighbors.remove(item)
+
+            # check whether variable's length property matches length of its assigned word
+            if variable.length != len(assignment[variable]):
+                print("variable's length", variable.length, "does not match assigned word::", assignment[variable], "length")
+                return False
+
+            # for each variable in assignments, check overlap and ensure word indices match.
+            for neighbor in neighbors:
+                overlapIndices = self.crossword.overlaps[variable, neighbor]
+
+                if (neighbor in assignment and assignment[variable][overlapIndices[0]] != assignment[neighbor][overlapIndices[1]]) or assignment[variable] == assignment[neighbor]:
+                    return False
+        return True
+
+
+
 
     def order_domain_values(self, var, assignment):
         """
